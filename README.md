@@ -26,7 +26,7 @@ THEN the saved events persist
 
 link to [repo]https://github.com/sentuhxd
 
-link to [deploy] 
+link to [deploy]https://sentuhxd.github.io/workday-scheduler-ir/
 
 link to [startercode]https://github.com/coding-boot-camp/crispy-octo-meme/tree/main
 
