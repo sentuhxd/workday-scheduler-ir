@@ -3,6 +3,10 @@ body {
   font-size: 16px;
 }
 
+.jumbotron {
+  text-align: center;
+  
+}
 textarea {
   background: transparent;
   border: none;
