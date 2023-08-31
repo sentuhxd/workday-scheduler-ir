@@ -6,7 +6,7 @@ $(document).ready(function () {
   var todaysDate = moment().format("dddd, MMM Do YYYY");
   $("#currentDay").html(todaysDate);
 
-  function timeBlock() {
+  function time() {
     var currentTimeBlock = moment().hours();
     $(".time-block").each(function() {
       var timeBlockHour = parseInt($(this).attr("id"));
@@ -26,12 +26,19 @@ $(document).ready(function () {
         $(this).addClass("future")
       }
 
+      $(".saveBtn").on("click", function (event) {
+        console.log("saveBtn");
+        var time = $(this).parent().attr("id");
+        var textarea= $(this).siblings(".description").val();
+        console.log(time, textarea);
+        localStorage.setItem(time, textarea);
+
+      });
     });
+  }
 
-
-  
-  };
-
+  time();
+ 
 
 
 
