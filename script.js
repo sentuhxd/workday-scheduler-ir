@@ -27,8 +27,13 @@ $(document).ready(function () {
   $("#hour-16 .time-block").val(localStorage.getItem("16"));
   $("#hour-17 .time-block").val(localStorage.getItem("17"));
 
+  $("#clearFieldsBtn").on("click", function (event) {
+    event.preventDefault();
+    $("textarea").val("");
+    localStorage.clear();
 
-  
+  });
+
 
   function timeTracker() {
     var currentTimeBlock = moment().hours();
