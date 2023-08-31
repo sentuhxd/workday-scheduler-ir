@@ -3,10 +3,34 @@
 // in the html.
 $(document).ready(function () {
 
-  var todaysDate = moment().format("dddd, MMM Do YYYY");
+  var todaysDate = moment().format("dddd, MMM Do YYYY, h:mm:ss a");
   $("#currentDay").html(todaysDate);
 
-  function time() {
+  $(".saveBtn").on("click", function (event) {
+    event.preventDefault();
+    console.log(this);
+    var time = $(this).parent().attr("id");
+    var textarea= $(this).siblings(".description").val();
+    console.log(time, textarea);
+    localStorage.setItem(time, textarea);
+
+  });
+
+
+  $("#hour-09 .time-block").val(localStorage.getItem("09"));
+  $("#hour-10 .time-block").val(localStorage.getItem("10"));
+  $("#hour-11 .time-block").val(localStorage.getItem("11"));
+  $("#hour-12 .time-block").val(localStorage.getItem("12"));
+  $("#hour-13 .time-block").val(localStorage.getItem("13"));
+  $("#hour-14 .time-block").val(localStorage.getItem("14"));
+  $("#hour-15 .time-block").val(localStorage.getItem("15"));
+  $("#hour-16 .time-block").val(localStorage.getItem("16"));
+  $("#hour-17 .time-block").val(localStorage.getItem("17"));
+
+
+  
+
+  function timeTracker() {
     var currentTimeBlock = moment().hours();
     $(".time-block").each(function() {
       var timeBlockHour = parseInt($(this).attr("id"));
@@ -25,19 +49,10 @@ $(document).ready(function () {
         $(this).removeClass("present")
         $(this).addClass("future")
       }
-
-      $(".saveBtn").on("click", function (event) {
-        console.log("saveBtn");
-        var time = $(this).parent().attr("id");
-        var textarea= $(this).siblings(".description").val();
-        console.log(time, textarea);
-        localStorage.setItem(time, textarea);
-
-      });
     });
   }
 
-  time();
+  timeTracker();
  
 
 
