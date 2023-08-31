@@ -17,15 +17,15 @@ $(document).ready(function () {
   });
 
 
-  $("#hour-09 .time-block").val(localStorage.getItem("09"));
-  $("#hour-10 .time-block").val(localStorage.getItem("10"));
-  $("#hour-11 .time-block").val(localStorage.getItem("11"));
-  $("#hour-12 .time-block").val(localStorage.getItem("12"));
-  $("#hour-13 .time-block").val(localStorage.getItem("13"));
-  $("#hour-14 .time-block").val(localStorage.getItem("14"));
-  $("#hour-15 .time-block").val(localStorage.getItem("15"));
-  $("#hour-16 .time-block").val(localStorage.getItem("16"));
-  $("#hour-17 .time-block").val(localStorage.getItem("17"));
+  $("#hour9 .time-block").val(localStorage.getItem("09"));
+  $("#hour10 .time-block").val(localStorage.getItem("10"));
+  $("#hour11 .time-block").val(localStorage.getItem("11"));
+  $("#hour12 .time-block").val(localStorage.getItem("12"));
+  $("#hour13 .time-block").val(localStorage.getItem("13"));
+  $("#hour14 .time-block").val(localStorage.getItem("14"));
+  $("#hour15 .time-block").val(localStorage.getItem("15"));
+  $("#hour16 .time-block").val(localStorage.getItem("16"));
+  $("#hour17 .time-block").val(localStorage.getItem("17"));
 
   $("#clearFieldsBtn").on("click", function (event) {
     event.preventDefault();
@@ -38,14 +38,13 @@ $(document).ready(function () {
   function timeTracker() {
     var currentTimeBlock = moment().hours();
     $(".time-block").each(function() {
-      var timeBlockHour = parseInt($(this).attr("id"));
+      var timeBlockHour = parseInt($(this).attr("id").split("hour")[1]);
       console.log(timeBlockHour);
 
-
-      if ( timeBlockHour < currentTimeBlock){
+      if (timeBlockHour < currentTimeBlock) {
         $(this).addClass("past");
       } 
-      else if ( timeBlockHour === currentTimeBlock) {
+      else if (timeBlockHour === currentTimeBlock) {
         $(this).removeClass("past");
         $(this).addClass("present");
       }
